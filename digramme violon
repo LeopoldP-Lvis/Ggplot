@@ -1,0 +1,15 @@
+A utliser avec des données numérique
+#Diagramme violon UNIVARIE
+gplot(data = Dataframe , aes(x = "", y = Question))  + # data = mettre son jeu de données, x"" = je ne met rien sur mon axe x, y = "la Q que je souhaite analyser.
+  geom_violin(fill = "#A2F48B", alpha = 0.5) +  # couleur de remplissage et transparence pour le violon
+  geom_boxplot(width = 0.5, color = "darkgreen", fill = "transparent") +  # diagramme en boîte (ici j'ai rajouté une boite à moustache en supplément).
+  labs(x = "", y = "Nom de la Question") +  # étiquettes des axes
+  ggtitle("Mettre mon titre") +  # titre du graphique
+  theme_minimal()  # un thème minimal pour le graphique
+
+ #Digrame violon BIVARIE
+ ggplot(data = Dataframe, aes(x = Question en abscisse, y = Question en ordonné, fill = Mettre la Question en x)) +
+  geom_violin() +  # Commande pour faire le graphique violon
+  scale_fill_manual(values = c("blue", "pink"), guide = "none" or name = "Titre de le légende") +   # Couleurs pour le graphique 1 = "blue" et 2 = "pink" , guide = supprime la légende , name = "titre"
+  ggtitle("Diagramme en Violon et Boîte de l'Âge") +  # Titre du graphique
+  theme_minimal()  # Thème minimal pour le graphique
