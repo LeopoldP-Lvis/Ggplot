@@ -1,0 +1,19 @@
+Graphe en bar avec regroupant plusieurs questions 
+# Sélection des données
+Sous-ensemble <- Dataframe[, Q1,Q2,Q3] #je selection le Dataframe ainsi que les questions que je stock dans un sous ensemble.
+# Renomner les noms des questions pour une belle lisibilité sur le graphique
+Sous-ensemble2 <- c("Nouveau nom Q1", "Nouveau nom Q2", "Nouveau nom Q3") # Je stock ces noms dans un sous ensemble.
+
+# Calcul des moyennes (Je dois avoir des questions numérique et faire un histo des moyennes)
+moyennes <- colMeans(Sous-ensemble, na.rm = TRUE) 
+
+# Création du data frame pour ggplot
+df <- data.frame(Sous-ensemble2, moyennes) #Je créer un nouveau data frame (df) contenant mes moyennes et mes nouveaux noms
+
+# Tracé du graphique à barres
+library(ggplot2) #chargement du package
+ggplot(df, aes(x = Sous-ensemble2, y = moyennes))  + #Le graphique du dataframe df ; aes = les noms l'axe x et y = les moyennes
+  geom_bar(stat = "identity", fill = "skyblue") + #geombar est la fonction pour faire l'histogramme , stat = "identity" indique que les hauteurs des barres sont définies par les données réelles. fill = "skyblue" spécifie la couleur de remplissage des barres. 
+  xlab("légende de l'axe X") +
+  ylab("légende de l'axe y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotation des étiquettes de l'axe x pour une meilleure lisibilité
